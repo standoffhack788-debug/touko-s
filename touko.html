@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TOUKO</title>
+<style>
+html,body{
+  margin:0;
+  padding:0;
+  height:100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background:#120012;
+  overflow:hidden;
+}
+body{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+@keyframes bgmove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes float{
+  0%{transform:translateY(110vh);opacity:0}
+  20%{opacity:.3}
+  100%{transform:translateY(-120vh);opacity:0}
+}
+.background{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(120deg,#2a0000,#5a0030,#2a0000,#120012);
+  background-size:300% 300%;
+  animation:bgmove 20s ease-in-out infinite;
+}
+.symbol{
+  position:absolute;
+  color:rgba(217,70,239,.3);
+  font-size:22px;
+  animation:float linear infinite;
+}
+.card{
+  position:relative;
+  z-index:2;
+  background:rgba(0,0,0,.45);
+  backdrop-filter:blur(12px);
+  border-radius:20px;
+  padding:40px;
+  text-align:center;
+  width:90%;
+  max-width:520px;
+}
+.badge{
+  display:inline-block;
+  padding:6px 14px;
+  border-radius:999px;
+  border:1px solid rgba(217,70,239,.6);
+  color:#d946ef;
+  box-shadow:0 0 18px rgba(217,70,239,.6);
+  margin-bottom:20px;
+}
+h1{
+  color:#d946ef;
+  margin:10px 0;
+}
+.subtitle{
+  color:white;
+  font-weight:600;
+}
+.about{
+  margin:20px auto;
+  padding:12px 18px;
+  border-radius:14px;
+  border:1px solid rgba(217,70,239,.2);
+  color:#e879f9;
+  font-size:14px;
+}
+.buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  justify-content:center;
+  margin-top:30px;
+}
+.buttons a{
+  text-decoration:none;
+  color:white;
+  padding:10px 18px;
+  border-radius:999px;
+  background:linear-gradient(90deg,#7a0000,#3a0000);
+}
+footer{
+  margin-top:25px;
+  font-size:12px;
+  opacity:.6;
+}
+</style>
+</head>
+<body>
+<div class="background"></div>
+
+<script>
+const symbols = "闇 血 王 影 魂 夜 虚".split(" ");
+for(let i=0;i<30;i++){
+  const s=document.createElement("div");
+  s.className="symbol";
+  s.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+  s.style.left=Math.random()*100+"%";
+  s.style.animationDuration=(15+Math.random()*20)+"s";
+  s.style.animationDelay=Math.random()*20+"s";
+  document.body.appendChild(s);
+}
+</script>
+
+<div class="card">
+  <div class="badge">◉ TOUKO</div>
+  <h1>Моё имя — TOUKO</h1>
+  <div class="subtitle">Владыка цифровой тьмы и вечной охоты.</div>
+  <div class="about">
+    Nazar • Sweden • 15 y.o<br/>
+    Programming · Digital chaos · Dark aesthetics
+  </div>
+  <div class="buttons">
+    <a href="#">Telegram</a>
+    <a href="#">Cheats Channel</a>
+    <a href="#">Reels Channel</a>
+    <a href="#">GitHub</a>
+    <a href="#">Email</a>
+  </div>
+  <footer>© 2025 Nazar</footer>
+</div>
+</body>
+</html>
